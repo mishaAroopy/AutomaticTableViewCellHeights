@@ -14,6 +14,7 @@ class listingCell: UITableViewCell {
     var jobDescription: UITextView!
     var listingDate: UILabel!
     
+    //MARK: Initializers
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -26,7 +27,7 @@ class listingCell: UITableViewCell {
         let myWidth = Int(self.frame.size.width) - 2*x_loc
         var y_loc = 0
         
-        var myFont = UILabel().font
+        let myFont = UILabel().font
         let smallFont = myFont?.withSize(12)
         let medFont = myFont?.withSize(14)
         let biggerFont = UIFont.boldSystemFont(ofSize: 16)
@@ -60,8 +61,9 @@ class listingCell: UITableViewCell {
         jobDescription.isScrollEnabled = false // If we don't use this then it outputs a shorter (but scrollable) textview!
         jobDescription.text = "This is a summary..."
         self.contentView.addSubview(jobDescription)
-        //The UITableViewAutomaticDimension works with Constraints. So we need to constrain things perfectly.
-        //I haven't used the more recent Anchor as they require iOS9.0 and I wanted to keep this viable for iOS8.0
+        
+        //The UITableViewAutomaticDimension works with Constraints - so we need to constrain things perfectly.
+        //I haven't used the more recent Anchor as it requires iOS9.0 and I wanted to keep this viable for iOS8.0
         let constraintTop = NSLayoutConstraint(item: jobDescription,
                                                attribute: NSLayoutAttribute.top,
                                                relatedBy: NSLayoutRelation.equal, toItem: self.listingDate,

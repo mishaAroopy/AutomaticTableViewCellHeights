@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     var tableView: UITableView!
     var listings: [Listing]!
     
+    //MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         createTestListings()
